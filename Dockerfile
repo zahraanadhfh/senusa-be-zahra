@@ -21,4 +21,4 @@ COPY . .
 EXPOSE 5001
 
 # Perintah untuk menjalankan aplikasi
-CMD ["py", "main.py"]
+CMD ["python", "main.py"]
