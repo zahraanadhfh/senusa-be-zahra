@@ -1,24 +1,17 @@
-# Gunakan image Python resmi
-FROM python:3.10-slim
+# Gunakan base image Python
+FROM python:3.10
 
-# Set working directory
+# Set working directory di dalam container
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    build-essential \
-    python3-dev
+# Copy semua file ke dalam container
+COPY . /app
 
-# Salin requirements.txt dan install dependencies
-COPY requirements.txt .
+# Install dependencies dari requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Salin seluruh proyek
-COPY . .
-
-# Expose port yang digunakan (misal: 5000 untuk Flask)
+# Expose port yang digunakan Flask (default 5001)
 EXPOSE 5001
 
-# Perintah untuk menjalankan aplikasi
-CMD ["python", "main.py"]
+# Jalankan Gunicorn sebagai WSGI server untuk Flask
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5001", "main:app"]
