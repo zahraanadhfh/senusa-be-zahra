@@ -4,6 +4,8 @@ import pandas as pd
 import os
 import logging
 from flask_cors import CORS
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Inisialisasi Flask
 app = Flask(__name__)
