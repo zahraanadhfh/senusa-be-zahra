@@ -21,4 +21,4 @@ COPY . .
 EXPOSE 5001
 
 # Perintah untuk menjalankan aplikasi
-CMD ["gunicorn", "--bind", "0.0.0.0:5001", "main:main"]
+CMD ["py", "main.py"]
