@@ -340,5 +340,9 @@ def generate_variant_list():
         logging.error(f"An error occurred in /generate_variant_list endpoint: {e}")
         return jsonify({"error": "An error occurred while generating the variant list report."}), 500
     
+@app.route('/', methods=['GET'])
+def index():
+    return "Hello, World!"
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True, port=5001)
