@@ -13,7 +13,7 @@ CORS(app)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 
 # Fungsi untuk membaca dataset
-DATASET_PATH = "dataset\information_data_run10-13.xlsx"  # Ganti dengan path dataset Anda
+DATASET_PATH = "information_data_run10-13.xlsx"  # Ganti dengan path dataset Anda
 try:
     dataset = pd.read_excel(DATASET_PATH)
     logging.info(f"Dataset loaded successfully with columns: {dataset.columns}")
@@ -44,7 +44,7 @@ def get_acmg_interpretation(row):
 class CustomPDF(FPDF):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.logo_path = "asset\logo-bio.png"  # Path ke file logo organisasi
+        self.logo_path = "logo.jpg"  # Path ke file logo organisasi
 
     def header(self):
         if self.page_no() == 1:

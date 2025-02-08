@@ -1,0 +1,6 @@
+Flask
+fpdf
+pandas
+os
+logging
+flask-cors
